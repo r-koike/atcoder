@@ -1,0 +1,517 @@
+{
+	// Place your snippets for cpp here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	"sfd": {
+		"prefix": "sfd",
+		"body": [
+			"scanf(\"%d\",&$1);"
+		],
+		"description": "scanf d"
+	},
+	"sfdd": {
+		"prefix": "sfdd",
+		"body": [
+			"scanf(\"%d%d\",&$1,&$2);"
+		],
+		"description": "scanf d2"
+	},
+	"sfddd": {
+		"prefix": "sfddd",
+		"body": [
+			"scanf(\"%d%d%d\",&$1,&$2,&$3);"
+		],
+		"description": "scanf d3"
+	},
+	"sfd4": {
+		"prefix": "sfd4",
+		"body": [
+			"scanf(\"%d%d%d%d\",&$1,&$2,&$3,&$4);"
+		]
+	},
+	"sfd5": {
+		"prefix": "sfd5",
+		"body": [
+			"scanf(\"%d%d%d%d%d\",&$1,&$2,&$3,&$4,&$5);"
+		]
+	},
+	"sfd6": {
+		"prefix": "sfd6",
+		"body": [
+			"scanf(\"%d%d%d%d%d%d\",&$1,&$2,&$3,&$4,&$5,&$6);"
+		]
+	},
+	"sfll1": {
+		"prefix": "sfl",
+		"body": [
+			"scanf(\"%lld\",&$1);"
+		],
+		"description": "scanf ll"
+	},
+	"sfll2": {
+		"prefix": "sfll",
+		"body": [
+			"scanf(\"%lld%lld\",&$1,&$2);"
+		],
+		"description": "scanf ll2"
+	},
+	"sfll3": {
+		"prefix": "sflll",
+		"body": [
+			"scanf(\"%lld%lld%lld\",&$1,&$2,&$3);"
+		],
+		"description": "scanf ll3"
+	},
+	"sfll4": {
+		"prefix": "sfl4",
+		"body": [
+			"scanf(\"%lld%lld%lld%lld\",&$1,&$2,&$3,&$4);"
+		]
+	},
+	"sfll5": {
+		"prefix": "sfl5",
+		"body": [
+			"scanf(\"%lld%lld%lld%lld%lld\",&$1,&$2,&$3,&$4,&$5);"
+		]
+	},
+	"sfll6": {
+		"prefix": "sfl6",
+		"body": [
+			"scanf(\"%lld%lld%lld%lld%lld%lld\",&$1,&$2,&$3,&$4,&$5,&$6);"
+		]
+	},
+	"sff": {
+		"prefix": "sff",
+		"body": [
+			"scanf(\"%f\",&$1);"
+		],
+		"description": "scanf f"
+	},
+	"sfff": {
+		"prefix": "sfff",
+		"body": [
+			"scanf(\"%f%f\",&$1,&$2);"
+		],
+		"description": "scanf f2"
+	},
+	"sffff": {
+		"prefix": "sffff",
+		"body": [
+			"scanf(\"%f%f%f\",&$1,&$2,&$3);"
+		],
+		"description": "scanf f3"
+	},
+	"sflf": {
+		"prefix": "sflf",
+		"body": [
+			"scanf(\"%lf\",&$1);"
+		],
+		"description": "scanf lf"
+	},
+	"sflf2": {
+		"prefix": "sflf2",
+		"body": [
+			"scanf(\"%lf%lf\",&$1,&$2);"
+		],
+		"description": "scanf lf2"
+	},
+	"sflf3": {
+		"prefix": "sflf3",
+		"body": [
+			"scanf(\"%lf%lf%lf\",&$1,&$2,&$3);"
+		],
+		"description": "scanf lf3"
+	},
+	"sflf4": {
+		"prefix": "sflf4",
+		"body": [
+			"scanf(\"%lf%lf%lf%lf\",&$1,&$2,&$3,&$4);"
+		],
+		"description": "scanf lf4"
+	},
+	"sflf5": {
+		"prefix": "sflf5",
+		"body": [
+			"scanf(\"%lf%lf%lf%lf%lf\",&$1,&$2,&$3,&$4,&$5);"
+		],
+		"description": "scanf lf5"
+	},
+	"sflf6": {
+		"prefix": "sflf6",
+		"body": [
+			"scanf(\"%lf%lf%lf%lf%lf%lf\",&$1,&$2,&$3,&$4,&$5,&$6);"
+		],
+		"description": "scanf lf6"
+	},
+	"sfs": {
+		"prefix": "sfs",
+		"body": [
+			"char str_temp[100];",
+			"scanf(\"%s\",str_temp);",
+			"string $1(str_temp);",
+		],
+		"description": "scanf s"
+	},
+	"sfc": {
+		"prefix": "sfc",
+		"body": [
+			"scanf(\" %c\",&$1);"
+		],
+		"description": "scanf c"
+	},
+	"pfd": {
+		"prefix": "pfd",
+		"body": [
+			"printf(\"%d\\n\",$1);"
+		],
+		"description": "printf d"
+	},
+	"pfdd": {
+		"prefix": "pfdd",
+		"body": [
+			"printf(\"%d %d\\n\",$1,$2);"
+		],
+		"description": "printf dd"
+	},
+	"pfddd": {
+		"prefix": "pfddd",
+		"body": [
+			"printf(\"%d %d %d\\n\",$1,$2,$3);"
+		],
+		"description": "printf ddd"
+	},
+	"pfll1": {
+		"prefix": "pfl",
+		"body": [
+			"printf(\"%lld\\n\",$1);"
+		],
+		"description": "printf ll1"
+	},
+	"pfll2": {
+		"prefix": "pfll",
+		"body": [
+			"printf(\"%lld %lld\\n\",$1,$2);"
+		],
+		"description": "printf ll2"
+	},
+	"pfll3": {
+		"prefix": "pflll",
+		"body": [
+			"printf(\"%lld %lld %lld\\n\",$1,$2,$3);"
+		],
+		"description": "printf ll3"
+	},
+	"pff": {
+		"prefix": "pff",
+		"body": [
+			"printf(\"%f\\n\",$1);"
+		],
+		"description": "printf f"
+	},
+	"pfff": {
+		"prefix": "pfff",
+		"body": [
+			"printf(\"%f %f\\n\",$1,$2);"
+		],
+		"description": "printf ff"
+	},
+	"pffff": {
+		"prefix": "pffff",
+		"body": [
+			"printf(\"%f %f %f\\n\",$1,$2,$3);"
+		],
+		"description": "printf fff"
+	},
+	"pflf": {
+		"prefix": "pflf",
+		"body": [
+			"printf(\"%.8lf\\n\",$1);"
+		],
+		"description": "printf lf"
+	},
+	"pflf2": {
+		"prefix": "pflf2",
+		"body": [
+			"printf(\"%.8lf %.8lf\\n\",$1,$2);"
+		],
+		"description": "printf lf2"
+	},
+	"pflf3": {
+		"prefix": "pflf3",
+		"body": [
+			"printf(\"%.8lf %.8lf %.8lf\\n\",$1,$2,$3);"
+		],
+		"description": "printf lf3"
+	},
+	"pft": {
+		"prefix": "pft",
+		"body": [
+			"printf(\"$1\\n\");"
+		],
+		"description": "printf text"
+	},
+	"pfs": {
+		"prefix": "pfs",
+		"body": [
+			"printf(\"%s\\n\",$1.c_str());"
+		],
+		"description": "printf s"
+	},
+	"pfc": {
+		"prefix": "pfc",
+		"body": [
+			"printf(\"%c\\n\",$1);"
+		],
+		"description": "printf c"
+	},
+	"pfn": {
+		"prefix": "pfn",
+		"body": [
+			"printf(\"\\n\");"
+		],
+		"description": "printf n"
+	},
+	"for int i": {
+		"prefix": "fori",
+		"body": [
+			"for(int i = 0; i < $1;i++)"
+		],
+		"description": "for int i"
+	},
+	"for int j": {
+		"prefix": "forj",
+		"body": [
+			"for(int j = 0; j < $1;j++)"
+		],
+		"description": "for int j"
+	},
+	"for int k": {
+		"prefix": "fork",
+		"body": [
+			"for(int k = 0; k < $1;k++)"
+		],
+		"description": "for int k"
+	},
+	"for int l": {
+		"prefix": "forl",
+		"body": [
+			"for(int l = 0; l < $1;l++)"
+		],
+		"description": "for int l"
+	},
+	"for int m": {
+		"prefix": "form",
+		"body": [
+			"for(int m = 0; m < $1;m++)"
+		],
+		"description": "for int m"
+	},
+	"for int n": {
+		"prefix": "forn",
+		"body": [
+			"for(int n = 0; n < $1;n++)"
+		],
+		"description": "for int n"
+	},
+	"atcoder": {
+		"prefix": "cppac",
+		"body": [
+			"/**",
+			" * @brief  : c++ code for AtCoder",
+			" * @author : rk222",
+			" * @created: $CURRENT_YEAR.$CURRENT_MONTH.$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+			" */",
+			"",
+			"#define _CRT_SECURE_NO_WARNINGS",
+			"#include <algorithm>",
+			"#include <bitset>",
+			"#include <cmath>",
+			"#include <cstdio>",
+			"#include <iostream>",
+			"#include <map>",
+			"#include <queue>",
+			"#include <set>",
+			"#include <stack>",
+			"#include <string>",
+			"#include <vector>",
+			"using namespace std;",
+			"",
+			"// #define int long long",
+			"",
+			"typedef long long ll;",
+			"typedef long double ld;",
+			"typedef pair<int, int> P;",
+			"typedef pair<int, P> P1;",
+			"typedef tuple<int, int, int> T;",
+			"typedef vector<int> vi;",
+			"typedef vector<vi> vvi;",
+			"typedef vector<ll> vl;",
+			"typedef vector<P> vp;",
+			"typedef vector<tuple<int, int, int>> vt;",
+			"",
+			"#define fr first",
+			"#define sc second",
+			"#define mp make_pair",
+			"#define pb push_back",
+			"#define rep(i, x) for (int i = 0; i < x; i++)",
+			"#define rep1(i, x) for (int i = 1; i <= x; i++)",
+			"#define srep(i, s, x) for (int i = s; i < x; i++)",
+			"#define rrep(i, x) for (int i = x - 1; i >= 0; i--)",
+			"#define rrep1(i, x) for (int i = x; i > 0; i--)",
+			"#define rsrep(i, s, x) for (int i = x - 1; i >= s; i--)",
+			"#define maxs(x, y) (x = max(x, y))",
+			"#define mins(x, y) (x = min(x, y))",
+			"#define limit(x, l, r) max(l, min(x, r))",
+			"#define lims(x, l, r) (x = max(l, min(x, r)))",
+			"#define sor(v) sort(v.begin(), v.end())",
+			"#define rev(s) reverse(s.begin(), s.end())",
+			"#define lb(vec, a) lower_bound(vec.begin(), vec.end(), a)",
+			"#define ub(vec, a) upper_bound(vec.begin(), vec.end(), a)",
+			"#define uniq(vec) vec.erase(unique(vec.begin(), vec.end()), vec.end())",
+			"#define mp1(a, b, c) P1(a, P(b, c))",
+			"#define dame                                                                                  \\",
+			"\t\tputs(\"-1\");                                                                           \\",
+			"\t\treturn 0",
+			"#define yn                                                                                    \\",
+			"\tputs(\"Yes\");                                                                              \\",
+			"\telse puts(\"No\")",
+			"#define YN                                                                                    \\",
+			"\tputs(\"YES\");                                                                              \\",
+			"\telse puts(\"NO\")",
+			"",
+			"template <typename A, typename B> string to_string(pair<A, B> p);",
+			"template <typename A, typename B, typename C> string to_string(tuple<A, B, C> p);",
+			"template <typename A, typename B, typename C, typename D>",
+			"string to_string(tuple<A, B, C, D> p);",
+			"string to_string(const string &s) {",
+			"\treturn '\"' + s + '\"';",
+			"}",
+			"string to_string(const char *s) {",
+			"\treturn to_string((string)s);",
+			"}",
+			"string to_string(bool b) {",
+			"\treturn (b ? \"true\" : \"false\");",
+			"}",
+			"string to_string(vector<bool> v) {",
+			"\tbool first = true;",
+			"\tstring ret = \"{\";",
+			"\tfor (int i = 0; i < static_cast<int>(v.size()); i++) {",
+			"\t\tif (!first) {",
+			"\t\t\tret += \", \";",
+			"\t\t}",
+			"\t\tfirst = false;",
+			"\t\tret += to_string(v[i]);",
+			"\t}",
+			"\tret += \"}\";",
+			"\treturn ret;",
+			"}",
+			"template <size_t N> string to_string(bitset<N> v) {",
+			"\tstring ret = \"\";",
+			"\tfor (size_t i = 0; i < N; i++) {",
+			"\t\tret += static_cast<char>('0' + v[i]);",
+			"\t}",
+			"\treturn ret;",
+			"}",
+			"template <typename A> string to_string(A v) {",
+			"\tbool first = true;",
+			"\tstring ret = \"{\";",
+			"\tfor (const auto &x : v) {",
+			"\t\tstring s = to_string(x);",
+			"\t\tif (!first) {",
+			"\t\t\tret += \", \";",
+			"\t\t}",
+			"\t\tif (s[0] == '{') {",
+			"\t\t\ts = \"\\n\" + s;",
+			"\t\t}",
+			"\t\tfirst = false;",
+			"\t\tret += s;",
+			"\t}",
+			"\tif (ret[ret.size() - 1] == '}') {",
+			"\t\tret += \"\\n}\";",
+			"\t} else {",
+			"\t\tret += \"}\";",
+			"\t}",
+			"\treturn ret;",
+			"}",
+			"template <typename A, typename... Lest> string to_string(A *v, int n, Lest... L) {",
+			"\tbool first = true;",
+			"\tstring ret = \"{\";",
+			"\trep(i, n) {",
+			"\t\tauto x = v[i];",
+			"\t\tstring s = to_string(x, L...);",
+			"\t\tif (!first) {",
+			"\t\t\tret += \", \";",
+			"\t\t}",
+			"\t\tif (s[0] == '{') {",
+			"\t\t\ts = \"\\n\" + s;",
+			"\t\t}",
+			"\t\tfirst = false;",
+			"\t\tret += s;",
+			"\t}",
+			"\tif (ret[ret.size() - 1] == '}') {",
+			"\t\tret += \"\\n}\";",
+			"\t} else {",
+			"\t\tret += \"}\";",
+			"\t}",
+			"\treturn ret;",
+			"}",
+			"template <typename A, typename B> string to_string(pair<A, B> p) {",
+			"\treturn \"(\" + to_string(p.first) + \", \" + to_string(p.second) + \")\";",
+			"}",
+			"template <typename A, typename B, typename C> string to_string(tuple<A, B, C> p) {",
+			"\treturn \"(\" + to_string(get<0>(p)) + \", \" + to_string(get<1>(p)) + \", \" +",
+			"\t\tto_string(get<2>(p)) + \")\";",
+			"}",
+			"template <typename A, typename B, typename C, typename D>",
+			"string to_string(tuple<A, B, C, D> p) {",
+			"\treturn \"(\" + to_string(get<0>(p)) + \", \" + to_string(get<1>(p)) + \", \" +",
+			"\t\tto_string(get<2>(p)) + \", \" + to_string(get<3>(p)) + \")\";",
+			"}",
+			"void name_disp(string s) {",
+			"\tcerr << \"-------\" << endl;",
+			"\tcerr << s << \": \" << endl;",
+			"}",
+			"void val_disp() {",
+			"\tcerr << endl;",
+			"}",
+			"template <typename First, typename... Lest> void val_disp(First F, Lest... L) {",
+			"\tcerr << to_string(F) << endl;",
+			"\tval_disp(L...);",
+			"}",
+			"template <typename A, typename... Lest> void val_disp(A *v, Lest... L) {",
+			"\tcerr << to_string(v, L...) << endl;",
+			"\tval_disp();",
+			"}",
+			"#define disp(...)                                                                             \\",
+			"\tname_disp(#__VA_ARGS__);                                                                  \\",
+			"\tval_disp(__VA_ARGS__)",
+			"#define adisp(a, ...)                                                                         \\",
+			"\tname_disp(#a);                                                                            \\",
+			"\tval_disp(a, __VA_ARGS__)",
+			"",
+			"#ifdef int",
+			"const ll INF = 1002003004005006007ll;",
+			"#else",
+			"const int INF = 1002003004;",
+			"#endif",
+			"",
+			"const int M = 100000000;",
+			"const int dir_4[4][2] = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};",
+			"const int dir_8[8][2] = {{1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0, -1}, {1, -1}};",
+			"",
+			"/* ------------------------------------- */",
+			"",
+			"signed main() {",
+			"\t$1",
+			"\t",
+			"\t",
+			"\t",
+			"\t",
+			"\t/* --------------------------------- */",
+			"\treturn 0;",
+			"};",
+		],
+		"description": "atcoder template"
+	},
+}
