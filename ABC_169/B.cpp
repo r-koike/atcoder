@@ -52,8 +52,10 @@ typedef vector<tuple<int, int, int>> vt;
 #define uniq(vec) vec.erase(unique(vec.begin(), vec.end()), vec.end())
 #define mp1(a, b, c) P1(a, P(b, c))
 #define dame                                                                                  \
-    puts("-1");                                                                               \
-    return 0
+    {                                                                                         \
+        puts("-1");                                                                           \
+        return 0;                                                                             \
+    }
 #define yn                                                                                    \
     puts("Yes");                                                                              \
     else puts("No")
@@ -199,16 +201,12 @@ signed main() {
     rep(i, n) {
         double a1 = ret;
         double a2 = a[i];
-        if (a1 * a2 > e) {
-            printf("%d\n", -1);
-            return 0;
-        }
+        if (a1 * a2 > e)
+            dame;
 
         ret *= a[i];
-        if (ret > e) {
-            printf("%d\n", -1);
-            return 0;
-        }
+        if (ret > e)
+            dame;
     }
 
     printf("%lld\n", ret);

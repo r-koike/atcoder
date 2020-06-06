@@ -388,12 +388,14 @@ template <int M> struct ModInt {
 using mint = ModInt<M>;
 
 // ===================### 素数取得 ###=================== //
-bool primeDp[1000000000];
+const int MAX_N = 10000005;
+bool primeDp[MAX_N];
+// n以下の素数を取得する
 // だいたいO(n)
-vector<int> getPrimes(int n) {
+vi getPrimes(int n) {
     int u = n + 32;
     double lu = log(u);
-    vector<int> ret((int)(u / lu + u / lu / lu * 1.5));
+    vi ret((int)(u / lu + u / lu / lu * 1.5));
 
     for (int i = 2; i <= n; i++)
         primeDp[i] = true;
@@ -411,7 +413,32 @@ vector<int> getPrimes(int n) {
             idx++;
         }
     }
-    return vector<int>(ret.begin(), ret.begin() + idx);
+    return vi(ret.begin(), ret.begin() + idx);
+}
+
+// ===================### 素因数分解 ###=================== //
+// (素数, その個数)というpair<int, int>を配列にまとめたものを返す
+vp primeFact(vi primes, int a) {
+    if (a == 1) {
+        return vp({mp(1, 1)});
+    }
+
+    vp ret;
+    rep(i, primes.size()) {
+        int num = 0;
+        int p = primes[i];
+        while (a % p == 0) {
+            a /= p;
+            num++;
+        }
+        if (num > 0) {
+            ret.pb(mp(p, num));
+        }
+    }
+    if (a > 1) {
+        ret.pb(mp(a, 1));
+    }
+    return ret;
 }
 
 // ===================### 最小共通祖先 ###=================== //

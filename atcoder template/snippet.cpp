@@ -1,11 +1,10 @@
 /**
  * @brief  : c++ code for AtCoder
  * @author : rk222
- * @created: $CURRENT_YEAR.$CURRENT_MONTH.$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND
+ * @created: 2020.06.06 17:27:33
  */
 
-// #define int long long
-
+#define _CRT_SECURE_NO_WARNINGS
 #include <algorithm>
 #include <bitset>
 #include <cmath>
@@ -18,6 +17,8 @@
 #include <string>
 #include <vector>
 using namespace std;
+
+// #define int long long
 
 typedef long long ll;
 typedef long double ld;
@@ -152,7 +153,7 @@ string to_string(tuple<A, B, C, D> p) {
 }
 void name_disp(string s) {
     cerr << "-------" << endl;
-    cerr << s << ":" << endl;
+    cerr << s << ": " << endl;
 }
 void val_disp() {
     cerr << endl;
@@ -188,4 +189,4 @@ signed main() {
 
     /* --------------------------------- */
     return 0;
-}
+};
