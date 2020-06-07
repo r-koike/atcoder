@@ -344,7 +344,7 @@ template <int M> struct ModInt {
     constexpr ModInt operator*(const ModInt &r) const noexcept {
         return ModInt(*this) *= r;
     }
-    constexpr ModInt operator/(const ModInt &r) const noexcept {
+    constexpr ModInt operator/(const ModInt &r) const dnoexcept {
         return ModInt(*this) /= r;
     }
     constexpr ModInt &operator+=(const ModInt &r) noexcept {
