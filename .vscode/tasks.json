@@ -1,0 +1,29 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "build",
+			"type": "shell",
+			"options": {
+				"shell": {
+					"executable": "C:\\Windows\\System32\\wsl.exe",
+				}
+			},
+			"command": "g++",
+			"args": [
+				"-std=gnu++1y",
+				"-g",
+				"-O0",
+				"-I/opt/boost/gcc/include",
+				"-L/opt/boost/gcc/lib",
+				"-o",
+				"'/mnt/c/Users/Koike Ryosuke/source/source/C++/atcoder/problem.exe'",
+				"'/mnt/c/Users/Koike Ryosuke/source/source/C++/atcoder/ABC_175/${fileBasename}'",
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}

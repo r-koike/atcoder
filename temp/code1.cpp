@@ -190,53 +190,15 @@ int pre[205];
 int oddpre[105];
 
 signed main() {
-    vi shimen, oddshimen;
-    rep1(i, 200) {
-        int shi = i * (i + 1) * (i + 2) / 6;
-        if (shi & 1)
-            oddshimen.pb(shi);
-        shimen.pb(shi);
+    int n, a[110];
+    scanf("%d", &n);
+    rep(i, n) {
+        scanf("%d", &a[i]);
     }
-
-    dp[0] = 0;
-    odddp[0] = 0;
-    rep(j, 200) {
-        pre[j] = INF;
-    }
-    rep(j, 100) {
-        oddpre[j] = INF;
-    }
-
-    rep1(i, 1000005) {
-        rep(j, shimen.size()) {
-
-            if (i - shimen[j] < 0) {
-                dp[i] = pre[j];
-                pre[j + 1] = dp[i];
-            } else {
-                dp[i] = min(dp[i - shimen[j]] + 1, pre[j]);
-                pre[j + 1] = dp[i];
-            }
-        }
-
-        rep(j, oddshimen.size()) {
-            if (i - oddshimen[j] < 0) {
-                odddp[i] = oddpre[j];
-                oddpre[j + 1] = odddp[i];
-            } else {
-                odddp[i] = min(odddp[i - oddshimen[j]] + 1, oddpre[j]);
-                oddpre[j + 1] = odddp[i];
-            }
-        }
-    }
-
-    // disp(dp, x + 1, 10);
-    while (1) {
-        int x;
-        scanf("%d", &x);
-        if (x == 0)
-            break;
-        printf("%d %d\n", dp[x], odddp[x]);
+    int b = 0;
+    rep(i, n) {
+        b += a[i];
+        disp(b);
     }
 
     /* --------------------------------- */
