@@ -123,6 +123,7 @@ int bit_sum(int x) {
 }
 
 // ===================### Union-Findの実装 ###=================== //
+
 const int UF_SIZE = 100010;
 
 int par[UF_SIZE]; // 親
@@ -165,6 +166,21 @@ bool same(int x, int y) {
 // xが属する集合の要素数
 int size(int x) {
     return siz[find(x)];
+}
+// 「一つの連結成分の頂点番号のリスト」のリスト
+vector<vi> groups(int n) {
+    vi vecs[UF_SIZE];
+    for (int i = 0; i < n; i++) {
+        int root = find(i);
+        vecs[root].pb(i);
+    }
+    vector<vi> ret;
+    for (int i = 0; i < n; i++) {
+        if (vecs[i].size() > 0) {
+            ret.pb(vecs[i]);
+        }
+    }
+    return ret;
 }
 
 // ===================### 階乗、組み合わせ ###=================== //
@@ -388,8 +404,8 @@ template <int M> struct ModInt {
 using mint = ModInt<M>;
 
 // ===================### 素数取得 ###=================== //
-const int MAX_N = 10000005;
-bool primeDp[MAX_N];
+const int MAX_N = 1000010;
+int primeDp[MAX_N];
 // n以下の素数を取得する
 // だいたいO(n)
 vi getPrimes(int n) {
@@ -398,17 +414,17 @@ vi getPrimes(int n) {
     vi ret((int)(u / lu + u / lu / lu * 1.5));
 
     for (int i = 2; i <= n; i++)
-        primeDp[i] = true;
+        primeDp[i] = i;
     int sqn = sqrt(n);
     for (int i = 2; i <= sqn; i++) {
-        if (!primeDp[i])
+        if (primeDp[i] < i)
             continue;
         for (int j = i * i; j <= n; j += i)
-            primeDp[j] = false;
+            primeDp[j] = i;
     }
     int idx = 0;
     for (int i = 2; i <= n; i++) {
-        if (primeDp[i]) {
+        if (primeDp[i] == i) {
             ret[idx] = i;
             idx++;
         }
@@ -418,31 +434,25 @@ vi getPrimes(int n) {
 
 // ===================### 素因数分解 ###=================== //
 // (素数, その個数)というpair<int, int>を配列にまとめたものを返す
-vp primeFact(vi primes, int a) {
+// getPrimes(int a)を先に呼んでおく必要がある
+vp primeFact(int a) {
     if (a == 1) {
         return vp({mp(1, 1)});
     }
-
     vp ret;
-    rep(i, primes.size()) {
+    while (a > 1) {
         int num = 0;
-        int p = primes[i];
+        int p = primeDp[a];
         while (a % p == 0) {
             a /= p;
             num++;
         }
-        if (num > 0) {
-            ret.pb(mp(p, num));
-        }
-    }
-    if (a > 1) {
-        ret.pb(mp(a, 1));
+        ret.pb(mp(p, num));
     }
     return ret;
 }
 
 // ===================### 最小共通祖先 ###=================== //
-
 vector<int> G[100010];
 
 int parent[100010];
