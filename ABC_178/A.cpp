@@ -185,73 +185,14 @@ const int dir_8[8][2] = {{1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0,
 
 /* ------------------------------------- */
 
-const int UF_SIZE = 100010;
-
-int par[UF_SIZE]; // 親
-int siz[UF_SIZE]; // 木の深さ
-
-// n要素で初期化
-void init(int n) {
-    for (int i = 0; i < n; i++) {
-        par[i] = i;
-        siz[i] = 1;
-    }
-}
-// 木の根を求める
-int find(int x) {
-    if (par[x] == x) {
-        return x;
-    } else {
-        return par[x] = find(par[x]);
-    }
-}
-// xとyの属する集合を併合
-void unite(int x, int y) {
-    x = find(x);
-    y = find(y);
-    if (x == y)
-        return;
-
-    if (siz[x] < siz[y]) {
-        par[x] = y;
-        siz[y] += siz[x];
-    } else {
-        par[y] = x;
-        siz[x] += siz[y];
-    }
-}
-// xとyが同じ集合に属するか否か
-bool same(int x, int y) {
-    return find(x) == find(y);
-}
-// xが属する集合の要素数
-int size(int x) {
-    return siz[find(x)];
-}
-// 「一つの連結成分の頂点番号のリスト」のリスト
-vector<vi> groups(int n) {
-    vi vecs[UF_SIZE];
-    for (int i = 0; i < n; i++) {
-        int root = find(i);
-        vecs[root].pb(i);
-    }
-    vector<vi> ret;
-    for (int i = 0; i < n; i++) {
-        if (vecs[i].size() > 0) {
-            ret.pb(vecs[i]);
-        }
-    }
-    return ret;
-}
-
 signed main() {
-    int n = 10;
-    init(n);
-    unite(3, 1);
-    unite(2, 1);
-    unite(9, 5);
-
-    disp(groups(n));
+    int x;
+    scanf("%d", &x);
+    if (x == 0) {
+        printf("%d\n", 1);
+    } else {
+        printf("%d\n", 0);
+    }
 
     /* --------------------------------- */
     return 0;

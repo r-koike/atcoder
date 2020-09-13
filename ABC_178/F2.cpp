@@ -1,7 +1,7 @@
 /**
  * @brief  : c++ code for AtCoder
  * @author : rk222
- * @created: 2020.09.13 20:03:29
+ * @created: 2020.09.13 20:03:35
  */
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -18,7 +18,7 @@
 #include <vector>
 using namespace std;
 
-#define int long long
+// #define int long long
 
 typedef long long ll;
 typedef long double ld;
@@ -179,69 +179,75 @@ const ll INF = 1002003004005006007ll;
 const int INF = 1002003004;
 #endif
 
-const int M = 1000000007;
+const int M = 100000000;
 const int dir_4[4][2] = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
 const int dir_8[8][2] = {{1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0, -1}, {1, -1}};
 
 /* ------------------------------------- */
 
-bool PRESET_KAIJO_ARRAY = false; // 階乗配列をPRESETするか
-const ll MAX_KAIJO_N = 2020;     // n%mの最大値?
-ll kaijo[MAX_KAIJO_N];
-ll extgcd(ll a, ll b, ll &x, ll &y) {
-    ll g = a;
-    x = 1;
-    y = 0;
-    if (b != 0)
-        g = extgcd(b, a % b, y, x), y -= (a / b) * x;
-    return g;
-}
-// a^-1を返す
-ll modinv(ll a, ll m) {
-    ll x, y;
-    extgcd(a, m, x, y);
-    return (m + x % m) % m;
-}
-// n!=a*m^eとしたときのa(mod m)を求める
-// PRESETされていないならO(n)かかる
-ll modfact(ll n, ll m, ll &e) {
-    e = 0;
-    if (n == 0)
-        return 1LL;
-    ll ret = modfact(n / m, m, e);
-    e += n / m;
-    if (!PRESET_KAIJO_ARRAY) {
-        kaijo[0] = 1;
-        rep1(i, MAX_KAIJO_N - 1) {
-            kaijo[i] = (kaijo[i - 1] * i) % m;
-        }
-    }
-    if (n / m % 2 != 0)
-        return ret * (m - kaijo[n % m]) % m;
-    return ret * kaijo[n % m] % m;
-}
-// n種類のものからk個を選ぶ場合の数
-// PRESETされていないならO(n)かかる
-ll modcomb(ll n, ll k, ll m) {
-    if (n < 0 || k < 0 || n < k)
-        return 0;
-    ll e1, e2, e3;
-    ll a1 = modfact(n, m, e1), a2 = modfact(k, m, e2), a3 = modfact(n - k, m, e3);
-    if (e1 > e2 + e3)
-        return 0;
-    return a1 * modinv(a2 * a3 % m, m) % m;
-}
+int a[200020], b[200020];
+// fir[i]: iがaに最後に登場するidx+1
+int fir[200020];
+
+// ok[i]: もうみた
+bool ok[200020];
 
 signed main() {
-    ll so;
-    scanf("%lld", &so);
-    ll ret = 0;
-    rep1(n, so / 3) {
-        ll s = so - n * 2;
-        ret += modcomb(s - 1, n - 1, M);
-        ret %= M;
+    int n;
+    scanf("%d", &n);
+    rep(i, n) {
+        scanf("%d", &a[i]);
+        a[i]--;
     }
-    printf("%lld\n", ret);
+    rep(i, n) {
+        scanf("%d", &b[i]);
+        b[i]--;
+    }
+    a[n] = INF;
+    b[n] = INF;
+
+    int idx = 0;
+    rep(i, n) {
+        while (a[idx] == i) {
+            idx++;
+        }
+        fir[i] = idx;
+    }
+    // disp(fir, n);
+
+    int zurasi = 0;
+    rep(i, n) {
+        int bt = b[i];
+        if (ok[bt]) {
+            continue;
+        }
+        int fi = fir[bt];
+        if (i + zurasi < fi) {
+            zurasi += fi - i;
+        }
+    }
+    // disp(zurasi);
+
+    vi ret;
+    rep(i, n) {
+        int bt = b[(i + zurasi) % n];
+        if (bt != a[i]) {
+            ret.pb(bt);
+        } else {
+            printf("No\n");
+            return 0;
+        }
+    }
+
+    printf("Yes\n");
+    bool first = true;
+    rep(i, n) {
+        if (!first) {
+            printf(" ");
+        }
+        first = false;
+        printf("%d", ret[i] + 1);
+    }
 
     /* --------------------------------- */
     return 0;
