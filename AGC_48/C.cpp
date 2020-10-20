@@ -1,7 +1,7 @@
 /**
  * @brief  : c++ code for AtCoder
  * @author : rk222
- * @created: 2020.03.09 13:00:06
+ * @created: 2020.10.18 22:12:20
  */
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -18,7 +18,7 @@
 #include <vector>
 using namespace std;
 
-// #define int long long
+#define int long long
 
 typedef long long ll;
 typedef long double ld;
@@ -52,8 +52,10 @@ typedef vector<tuple<int, int, int>> vt;
 #define uniq(vec) vec.erase(unique(vec.begin(), vec.end()), vec.end())
 #define mp1(a, b, c) P1(a, P(b, c))
 #define dame                                                                                  \
-    puts("-1");                                                                               \
-    return 0
+    {                                                                                         \
+        puts("-1");                                                                           \
+        return 0;                                                                             \
+    }
 #define yn                                                                                    \
     puts("Yes");                                                                              \
     else puts("No")
@@ -183,60 +185,36 @@ const int dir_8[8][2] = {{1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0,
 
 /* ------------------------------------- */
 
-// dp[i][j]: j番目まででiを表すときに使う正四面体数の最小個数
-int dp[1000010];
-int odddp[1000010];
-int pre[205];
-int oddpre[105];
+ll n, l, a[100010], b[100010];
 
 signed main() {
-    vi shimen, oddshimen;
-    rep1(i, 200) {
-        int shi = i * (i + 1) * (i + 2) / 6;
-        if (shi & 1)
-        oddshimen.pb(shi);
-        shimen.pb(shi);
+    scanf("%lld%lld", &n, &l);
+    rep(i, n) {
+        scanf("%lld", &a[i]);
+    }
+    rep(i, n) {
+        scanf("%lld", &b[i]);
     }
 
-    dp[0] = 0;
-    odddp[0] = 0;
-    rep(j, 200) {
-        pre[j] = INF;
-    }
-    rep(j, 100) {
-        oddpre[j] = INF;
-    }
-
-    rep1(i, 1000005) {
-        rep(j, shimen.size()) {
-
-            if (i - shimen[j] < 0) {
-                dp[i] = pre[j];
-                pre[j + 1] = dp[i];
-            } else {
-                dp[i] = min(dp[i - shimen[j]] + 1, pre[j]);
-                pre[j + 1] = dp[i];
+    ll leftwall = 0;
+    ll ret = 0;
+    rep(i, n) {
+        if (b[i] == leftwall + 1) {
+            if (a[i] == b[i]) {
+                ret += 0;
+            } else if (a[i] < b[i]) {
+                ret += 2;
+            } else if (b[i] < a[i]) {
+                ret += 1;
             }
+            leftwall = b[i];
+            continue;
         }
-
-        rep(j, oddshimen.size()) {
-            if (i - oddshimen[j] < 0) {
-                odddp[i] = oddpre[j];
-                oddpre[j + 1] = odddp[i];
-            } else {
-                odddp[i] = min(odddp[i - oddshimen[j]] + 1, oddpre[j]);
-                oddpre[j + 1] = odddp[i];
-            }
+        if (b[i] == a[i]) {
+            ret += 0;
+            leftwall = b[i];
+            continue;
         }
-    }
-
-    // disp(dp, x + 1, 10);
-    while (1) {
-        int x;
-        scanf("%d", &x);
-        if (x == 0)
-            break;
-        printf("%d %d\n", dp[x], odddp[x]);
     }
 
     /* --------------------------------- */

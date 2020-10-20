@@ -520,6 +520,55 @@ ll kaijoModM(ll n) {
     return a;
 }
 
+// ===================### 有向グラフの巡回セールスマン問題 ###=================== //
+// n = 17くらいなら間に合う
+// O(n^2 * 2^n)
+template <class T> bool chmin(T &a, const T &b) {
+    if (b < a) {
+        a = b;
+        return 1;
+    }
+    return 0;
+}
+int V, E;
+int G[20][20]; // グラフ
+int dp[1000000][20];
+// メモ化再帰
+int rec(int S, int v) {
+    if (S == 0) {
+        if (v == 0) {
+            return 0;
+        } else {
+            return INF;
+        }
+    }
+    if ((S & (1 << v)) == 0) { // Sに{v}が含まれていない
+        return INF;
+    }
+    int &ret = dp[S][v];
+    if (ret != 0)
+        return ret;
+    ret = INF;
+    rep(u, V) {
+        chmin(ret, rec(S ^ (1 << v), u) + G[u][v]);
+    }
+    return ret;
+}
+signed main() {
+    V = n;
+    E = 0; // これは使われない，普通にエッジを入力してもいい
+    rep(i, 20) rep(j, 20) {
+        G[i][j] = INF;
+    }
+    rep(i, n) srep(j, i + 1, n) {
+        // ここに有向グラフG[i][j]のコストを入れるだけ
+        G[i][j] = abs(x[i] - x[j]) + abs(y[i] - y[j]) + max(0ll, z[j] - z[i]);
+        G[j][i] = abs(x[i] - x[j]) + abs(y[i] - y[j]) + max(0ll, z[i] - z[j]);
+    }
+    ll ret = rec((1 << V) - 1, 0);
+    return 0;
+};
+
 // ===================### 順列全探索 ###=================== //
 vi order;
 rep(i, n) {
