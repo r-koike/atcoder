@@ -1,7 +1,7 @@
 /**
  * @brief  : c++ code for AtCoder
  * @author : rk222
- * @created: 2020.12.09 15:30:14
+ * @created: 2021.01.23 20:51:00
  */
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -52,126 +52,126 @@ typedef vector<tuple<int, int, int>> vt;
 #define uniq(vec) vec.erase(unique(vec.begin(), vec.end()), vec.end())
 #define mp1(a, b, c) P1(a, P(b, c))
 #define dame                                                                                  \
-	{                                                                                         \
-	puts("-1");                                                                           \
-	return 0;                                                                             \
-	}
+    {                                                                                         \
+        puts("-1");                                                                           \
+        return 0;                                                                             \
+    }
 #define yn                                                                                    \
-	puts("Yes");                                                                              \
-	else puts("No")
+    puts("Yes");                                                                              \
+    else puts("No")
 #define YN                                                                                    \
-	puts("YES");                                                                              \
-	else puts("NO")
+    puts("YES");                                                                              \
+    else puts("NO")
 
 template <typename A, typename B> string to_string(pair<A, B> p);
 template <typename A, typename B, typename C> string to_string(tuple<A, B, C> p);
 template <typename A, typename B, typename C, typename D>
 string to_string(tuple<A, B, C, D> p);
 string to_string(const string &s) {
-	return '"' + s + '"';
+    return '"' + s + '"';
 }
 string to_string(const char *s) {
-	return to_string((string)s);
+    return to_string((string)s);
 }
 string to_string(bool b) {
-	return (b ? "true" : "false");
+    return (b ? "true" : "false");
 }
 string to_string(vector<bool> v) {
-	bool first = true;
-	string ret = "{";
-	for (int i = 0; i < static_cast<int>(v.size()); i++) {
-		if (!first) {
-			ret += ", ";
-		}
-		first = false;
-		ret += to_string(v[i]);
-	}
-	ret += "}";
-	return ret;
+    bool first = true;
+    string ret = "{";
+    for (int i = 0; i < static_cast<int>(v.size()); i++) {
+        if (!first) {
+            ret += ", ";
+        }
+        first = false;
+        ret += to_string(v[i]);
+    }
+    ret += "}";
+    return ret;
 }
 template <size_t N> string to_string(bitset<N> v) {
-	string ret = "";
-	for (size_t i = 0; i < N; i++) {
-		ret += static_cast<char>('0' + v[i]);
-	}
-	return ret;
+    string ret = "";
+    for (size_t i = 0; i < N; i++) {
+        ret += static_cast<char>('0' + v[i]);
+    }
+    return ret;
 }
 template <typename A> string to_string(A v) {
-	bool first = true;
-	string ret = "{";
-	for (const auto &x : v) {
-		string s = to_string(x);
-		if (!first) {
-			ret += ", ";
-		}
-		if (s[0] == '{') {
-			s = "\n" + s;
-		}
-		first = false;
-		ret += s;
-	}
-	if (ret[ret.size() - 1] == '}') {
-		ret += "\n}";
-	} else {
-		ret += "}";
-	}
-	return ret;
+    bool first = true;
+    string ret = "{";
+    for (const auto &x : v) {
+        string s = to_string(x);
+        if (!first) {
+            ret += ", ";
+        }
+        if (s[0] == '{') {
+            s = "\n" + s;
+        }
+        first = false;
+        ret += s;
+    }
+    if (ret[ret.size() - 1] == '}') {
+        ret += "\n}";
+    } else {
+        ret += "}";
+    }
+    return ret;
 }
 template <typename A, typename... Lest> string to_string(A *v, int n, Lest... L) {
-	bool first = true;
-	string ret = "{";
-	rep(i, n) {
-		auto x = v[i];
-		string s = to_string(x, L...);
-		if (!first) {
-			ret += ", ";
-		}
-		if (s[0] == '{') {
-			s = "\n" + s;
-		}
-		first = false;
-		ret += s;
-	}
-	if (ret[ret.size() - 1] == '}') {
-		ret += "\n}";
-	} else {
-		ret += "}";
-	}
-	return ret;
+    bool first = true;
+    string ret = "{";
+    rep(i, n) {
+        auto x = v[i];
+        string s = to_string(x, L...);
+        if (!first) {
+            ret += ", ";
+        }
+        if (s[0] == '{') {
+            s = "\n" + s;
+        }
+        first = false;
+        ret += s;
+    }
+    if (ret[ret.size() - 1] == '}') {
+        ret += "\n}";
+    } else {
+        ret += "}";
+    }
+    return ret;
 }
 template <typename A, typename B> string to_string(pair<A, B> p) {
-	return "(" + to_string(p.first) + ", " + to_string(p.second) + ")";
+    return "(" + to_string(p.first) + ", " + to_string(p.second) + ")";
 }
 template <typename A, typename B, typename C> string to_string(tuple<A, B, C> p) {
-	return "(" + to_string(get<0>(p)) + ", " + to_string(get<1>(p)) + ", " +
-		to_string(get<2>(p)) + ")";
+    return "(" + to_string(get<0>(p)) + ", " + to_string(get<1>(p)) + ", " +
+           to_string(get<2>(p)) + ")";
 }
 template <typename A, typename B, typename C, typename D>
 string to_string(tuple<A, B, C, D> p) {
-	return "(" + to_string(get<0>(p)) + ", " + to_string(get<1>(p)) + ", " +
-		to_string(get<2>(p)) + ", " + to_string(get<3>(p)) + ")";
+    return "(" + to_string(get<0>(p)) + ", " + to_string(get<1>(p)) + ", " +
+           to_string(get<2>(p)) + ", " + to_string(get<3>(p)) + ")";
 }
 void name_disp(string s) {
-	cerr << "-------" << endl;
-	cerr << s << ": " << endl;
+    cerr << "-------" << endl;
+    cerr << s << ": " << endl;
 }
 void val_disp() {
-	cerr << endl;
+    cerr << endl;
 }
 template <typename First, typename... Lest> void val_disp(First F, Lest... L) {
-	cerr << to_string(F) << endl;
-	val_disp(L...);
+    cerr << to_string(F) << endl;
+    val_disp(L...);
 }
 template <typename A, typename... Lest> void val_disp(A *v, Lest... L) {
-	cerr << to_string(v, L...) << endl;
-	val_disp();
+    cerr << to_string(v, L...) << endl;
+    val_disp();
 }
 #define disp(...)                                                                             \
-	name_disp(#__VA_ARGS__);                                                                  \
-	val_disp(__VA_ARGS__)
+    name_disp(#__VA_ARGS__);                                                                  \
+    val_disp(__VA_ARGS__)
 #define adisp(a, ...)                                                                         \
-	name_disp(#a);                                                                            \
-	val_disp(a, __VA_ARGS__)
+    name_disp(#a);                                                                            \
+    val_disp(a, __VA_ARGS__)
 
 #ifdef int
 const ll INF = 1002003004005006007ll;
@@ -185,19 +185,35 @@ const int dir_8[8][2] = {{1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0,
 
 /* ------------------------------------- */
 
-
-
-double xp(double theta1, double theta2){
-
-
-}
-
 signed main() {
-	
-	
-	
-	
-	
-	/* --------------------------------- */
-	return 0;
+    int n, a[100010];
+    scanf("%d", &n);
+    rep(i, n) {
+        scanf("%d", &a[i]);
+    }
+    int ret = 0;
+    rep(i, n) {
+        int l = i;
+        int r = i;
+        while (l > 0) {
+            if (a[l - 1] >= a[i]) {
+                l--;
+            } else {
+                break;
+            }
+        }
+        while (r < n - 1) {
+            if (a[r + 1] >= a[i]) {
+                r++;
+            } else {
+                break;
+            }
+        }
+        int rett = (r - l + 1) * a[i];
+        ret = max(ret, rett);
+    }
+    printf("%d\n", ret);
+
+    /* --------------------------------- */
+    return 0;
 };
