@@ -1,7 +1,7 @@
 /**
  * @brief  : c++ code for AtCoder
  * @author : rk222
- * @created: 2020.12.09 15:30:14
+ * @created: 2021.01.30 20:57:09
  */
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -185,10 +185,22 @@ const int dir_8[8][2] = {{1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0,
 
 /* ------------------------------------- */
 
-double xp(double theta1, double theta2) {
-}
-
 signed main() {
+    int a, b, c;
+    scanf("%d%d%d", &a, &b, &c);
+    if (c == 0) {
+        if (a > b) {
+            printf("Takahashi\n");
+        } else {
+            printf("Aoki\n");
+        }
+    } else {
+        if (a >= b) {
+            printf("Takahashi\n");
+        } else {
+            printf("Aoki\n");
+        }
+    }
 
     /* --------------------------------- */
     return 0;

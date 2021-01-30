@@ -1,7 +1,7 @@
 /**
  * @brief  : c++ code for AtCoder
  * @author : rk222
- * @created: 2020.12.09 15:30:14
+ * @created: 2021.01.30 20:57:20
  */
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -185,10 +185,33 @@ const int dir_8[8][2] = {{1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0,
 
 /* ------------------------------------- */
 
-double xp(double theta1, double theta2) {
-}
-
 signed main() {
+    ll n;
+    scanf("%lld", &n);
+    if (n == 1) {
+        printf("%d\n", 2);
+    }
+
+    ll sqrt2n = sqrt(2 * n) + 1;
+    // disp(sqrt2n);
+    ll ret = 0;
+    rep(m, sqrt2n + 1) {
+        ll t = 2 * n - m * m - m;
+        if (t <= 0) {
+            continue;
+        }
+        if (t % (2 * (m + 1)) == 0) {
+            ll k = t / (2 * (m + 1));
+            if (k > 0) {
+                ret++;
+                // disp(m, k);
+                if (ret > 450) {
+                    disp(m, k);
+                }
+            }
+        }
+    }
+    printf("%lld\n", ret);
 
     /* --------------------------------- */
     return 0;

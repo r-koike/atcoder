@@ -1,7 +1,7 @@
 /**
  * @brief  : c++ code for AtCoder
  * @author : rk222
- * @created: 2020.12.09 15:30:14
+ * @created: 2021.01.30 20:57:13
  */
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -185,10 +185,20 @@ const int dir_8[8][2] = {{1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0,
 
 /* ------------------------------------- */
 
-double xp(double theta1, double theta2) {
-}
-
 signed main() {
+    int n, s, d, x[110], y[110];
+    scanf("%d%d%d", &n, &s, &d);
+    rep(i, n) {
+        scanf("%d%d", &x[i], &y[i]);
+    }
+
+    rep(i, n) {
+        if (x[i] < s && y[i] > d) {
+            printf("Yes\n");
+            return 0;
+        }
+    }
+    printf("No\n");
 
     /* --------------------------------- */
     return 0;

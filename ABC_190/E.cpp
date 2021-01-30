@@ -1,7 +1,7 @@
 /**
  * @brief  : c++ code for AtCoder
  * @author : rk222
- * @created: 2020.12.09 15:30:14
+ * @created: 2021.01.30 20:57:26
  */
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -184,9 +184,6 @@ const int dir_4[4][2] = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
 const int dir_8[8][2] = {{1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0, -1}, {1, -1}};
 
 /* ------------------------------------- */
-
-double xp(double theta1, double theta2) {
-}
 
 signed main() {
 

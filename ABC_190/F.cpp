@@ -1,7 +1,7 @@
 /**
  * @brief  : c++ code for AtCoder
  * @author : rk222
- * @created: 2020.12.09 15:30:14
+ * @created: 2021.01.30 20:57:30
  */
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -18,7 +18,7 @@
 #include <vector>
 using namespace std;
 
-// #define int long long
+#define int long long
 
 typedef long long ll;
 typedef long double ld;
@@ -185,10 +185,40 @@ const int dir_8[8][2] = {{1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0,
 
 /* ------------------------------------- */
 
-double xp(double theta1, double theta2) {
-}
-
+ll n, a[300030], dp[300030];
 signed main() {
+    scanf("%lld", &n);
+    rep(i, n) {
+        scanf("%lld", &a[i]);
+    }
+    ll rett = 0;
+    dp[0] = a[0] == 0;
+    rep(i, n) {
+        if (i == 0)
+            continue;
+        dp[i] = dp[i - 1] + (a[i] == (i));
+    }
+    ll re = 0;
+    rep(i, n) {
+        re += abs(i - a[i]);
+        if (a[i] > i) {
+            // disp(i, a[i]);
+            re += dp[a[i]] - dp[i];
+        } else if (i > a[i]) {
+            // disp(i, a[i]);
+            re += dp[i] - dp[a[i]];
+        }
+    }
+    // disp(dp, 10);
+    // disp(re);
+    rett = re / 2;
+
+    printf("%lld\n", rett);
+    rep(i, n - 1) {
+        rett += (n - 1) - a[i];
+        rett -= a[i];
+        printf("%lld\n", rett);
+    }
 
     /* --------------------------------- */
     return 0;

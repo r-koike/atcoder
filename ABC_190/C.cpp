@@ -1,7 +1,7 @@
 /**
  * @brief  : c++ code for AtCoder
  * @author : rk222
- * @created: 2020.12.09 15:30:14
+ * @created: 2021.01.30 20:57:17
  */
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -185,10 +185,47 @@ const int dir_8[8][2] = {{1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0,
 
 /* ------------------------------------- */
 
-double xp(double theta1, double theta2) {
-}
-
 signed main() {
+    int n, m, a[110], b[110], k, c[20], d[20];
+    scanf("%d%d", &n, &m);
+    rep(i, m) {
+        scanf("%d%d", &a[i], &b[i]);
+        a[i]--;
+        b[i]--;
+        // disp(i, m);
+    }
+    scanf("%d", &k);
+    rep(i, k) {
+        scanf("%d%d", &c[i], &d[i]);
+        c[i]--;
+        d[i]--;
+    }
+
+    // {0, 1, ..., n-1} の部分集合の全探索
+    int ret = 0;
+    int sara[110];
+    for (int bit = 0; bit < (1 << k); ++bit) {
+        rep(i, n) {
+            sara[i] = 0;
+        }
+
+        for (int i = 0; i < k; ++i) {
+            if (bit & (1 << i)) { // 列挙に i が含まれるか
+                sara[c[i]]++;
+            } else {
+                sara[d[i]]++;
+            }
+        }
+
+        int rett = 0;
+        rep(i, m) {
+            if (sara[a[i]] > 0 && sara[b[i]] > 0) {
+                rett++;
+            }
+        }
+        ret = max(ret, rett);
+    }
+    printf("%d\n", ret);
 
     /* --------------------------------- */
     return 0;
