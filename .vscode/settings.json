@@ -68,5 +68,5 @@
 		"**/.DS_Store": true,
 		"**/*.exe": true,
 	},
-	"python.pythonPath": "D:\\Nospace\\anaconda3\\python.exe",
+	"python.pythonPath": "C:\\Nospace\\anaconda3\\python.exe",
 }
