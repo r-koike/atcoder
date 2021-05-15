@@ -1,7 +1,7 @@
 /**
  * @brief  : c++ code for AtCoder
  * @author : rk222
- * @created: 2021.05.12 12:23:37
+ * @created: 2021.05.15 20:54:18
  */
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -30,8 +30,6 @@ typedef vector<vi> vvi;
 typedef vector<ll> vl;
 typedef vector<P> vp;
 typedef vector<tuple<int, int, int>> vt;
-
-#define PI 3.14159265
 
 #define fr first
 #define sc second
@@ -186,19 +184,29 @@ const int dir_4[4][2] = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
 const int dir_8[8][2] = {{1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0, -1}, {1, -1}};
 
 /* ------------------------------------- */
-int n = 100, m = 100;
-int a[110][110];
+
 signed main() {
+    int n;
+    vector<pair<string, int>> vec;
 
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            printf("%d\n", a[i][j]);
-        }
+    cin >> n;
+    rep(i, n) {
+        int tt;
+        string st;
+        cin >> st >> tt;
+        vec.pb(mp(st, tt));
     }
+    // 第二要素が小さい順
+    sort(vec.begin(), vec.end(), [](const pair<string, int> a, const pair<string, int> b) {
+        if (a.sc != b.sc)
+            return a.sc < b.sc;
+        else
+            return false;
+    });
+    rev(vec);
 
-    rep(i, n) rep(j, m) {
-        printf("%d\n", a[i][j]);
-    }
+    // disp(vec);
+    cout << vec[1].fr << '\n';
 
     /* --------------------------------- */
     return 0;

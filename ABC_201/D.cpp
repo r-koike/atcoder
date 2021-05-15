@@ -1,7 +1,7 @@
 /**
  * @brief  : c++ code for AtCoder
  * @author : rk222
- * @created: 2021.05.12 12:23:37
+ * @created: 2021.05.15 20:54:24
  */
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -30,8 +30,6 @@ typedef vector<vi> vvi;
 typedef vector<ll> vl;
 typedef vector<P> vp;
 typedef vector<tuple<int, int, int>> vt;
-
-#define PI 3.14159265
 
 #define fr first
 #define sc second
@@ -186,19 +184,111 @@ const int dir_4[4][2] = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
 const int dir_8[8][2] = {{1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0, -1}, {1, -1}};
 
 /* ------------------------------------- */
-int n = 100, m = 100;
-int a[110][110];
-signed main() {
+int h, w;
+char a[2020][2020];
+P dp[2020][2020];
 
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            printf("%d\n", a[i][j]);
+signed main() {
+    scanf("%d%d", &h, &w);
+    rep(i, h) rep(j, w) {
+        scanf(" %c", &a[i][j]);
+    }
+
+    rrep(i, h) rrep(j, w) {
+        bool tban = ((i + j) % 2 == 0);
+        if (i == h - 1 && j == w - 1) {
+            dp[i][j] = mp(0, 0);
+            continue;
+        } else if (i == h - 1) {
+            P migi = dp[i][j + 1];
+            if (a[i][j + 1] == '-') {
+                if (tban) {
+                    dp[i][j] = mp(migi.fr - 1, migi.sc);
+                } else {
+                    dp[i][j] = mp(migi.fr, migi.sc - 1);
+                }
+            } else {
+                if (tban) {
+                    dp[i][j] = mp(migi.fr + 1, migi.sc);
+                } else {
+                    dp[i][j] = mp(migi.fr, migi.sc + 1);
+                }
+            }
+            continue;
+        } else if (j == w - 1) {
+            P sita = dp[i + 1][j];
+            if (a[i + 1][j] == '-') {
+                if (tban) {
+                    dp[i][j] = mp(sita.fr - 1, sita.sc);
+                } else {
+                    dp[i][j] = mp(sita.fr, sita.sc - 1);
+                }
+            } else {
+                if (tban) {
+                    dp[i][j] = mp(sita.fr + 1, sita.sc);
+                } else {
+                    dp[i][j] = mp(sita.fr, sita.sc + 1);
+                }
+            }
+            continue;
+        } else {
+            P migi = dp[i][j + 1];
+            P sita = dp[i + 1][j];
+            if (a[i][j + 1] == '-') {
+                if (tban) {
+                    migi = mp(migi.fr - 1, migi.sc);
+                } else {
+                    migi = mp(migi.fr, migi.sc - 1);
+                }
+            } else {
+                if (tban) {
+                    migi = mp(migi.fr + 1, migi.sc);
+                } else {
+                    migi = mp(migi.fr, migi.sc + 1);
+                }
+            }
+            if (a[i + 1][j] == '-') {
+                if (tban) {
+                    sita = mp(sita.fr - 1, sita.sc);
+                } else {
+                    sita = mp(sita.fr, sita.sc - 1);
+                }
+            } else {
+                if (tban) {
+                    sita = mp(sita.fr + 1, sita.sc);
+                } else {
+                    sita = mp(sita.fr, sita.sc + 1);
+                }
+            }
+
+            int cost_migi = migi.fr - migi.sc;
+            int cost_sita = sita.fr - sita.sc;
+            if (tban) {
+                if (cost_migi > cost_sita) {
+                    dp[i][j] = migi;
+                } else {
+                    dp[i][j] = sita;
+                }
+            } else {
+                if (cost_migi > cost_sita) {
+                    dp[i][j] = sita;
+                } else {
+                    dp[i][j] = migi;
+                }
+            }
         }
     }
 
-    rep(i, n) rep(j, m) {
-        printf("%d\n", a[i][j]);
+    P ret = dp[0][0];
+    if (ret.fr > ret.sc) {
+        printf("Takahashi\n");
+    } else if (ret.fr < ret.sc) {
+        printf("Aoki\n");
+    } else {
+        printf("Draw\n");
     }
+
+    // printf("%d %d\n", dp[0][0].fr, dp[0][0].sc);
 
     /* --------------------------------- */
     return 0;
