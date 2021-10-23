@@ -594,3 +594,7 @@ while (right - left > 1) {
 // ===================### その他 ###=================== //
 // 桁数を求める
 int keta = floor(log10(X) + 1);
+
+// ===================### iostream高速化 ###=================== //
+cin.tie(nullptr);
+ios::sync_with_stdio(false);
