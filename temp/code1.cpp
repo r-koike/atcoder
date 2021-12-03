@@ -1,7 +1,7 @@
 /**
  * @brief  : c++ code for AtCoder
  * @author : rk222
- * @created: 2021.05.12 12:23:37
+ * @created: 2021.11.28 21:47:08
  */
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -18,7 +18,7 @@
 #include <vector>
 using namespace std;
 
-// #define int long long
+#define int long long
 
 typedef long long ll;
 typedef long double ld;
@@ -30,8 +30,6 @@ typedef vector<vi> vvi;
 typedef vector<ll> vl;
 typedef vector<P> vp;
 typedef vector<tuple<int, int, int>> vt;
-
-#define PI 3.14159265
 
 #define fr first
 #define sc second
@@ -186,19 +184,27 @@ const int dir_4[4][2] = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
 const int dir_8[8][2] = {{1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0, -1}, {1, -1}};
 
 /* ------------------------------------- */
-int n = 100, m = 100;
-int a[110][110];
-signed main() {
+vi bi;
+ll ret1[62];
 
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            printf("%d\n", a[i][j]);
+signed main() {
+    ll n;
+    scanf("%lld", &n);
+
+    while (n > 0) {
+        bi.pb(n % 2);
+        n /= 2;
+    }
+
+    rrep(i, bi.size()) {
+        if (bi[i] == 1) {
+            printf("A");
+        }
+        if (i > 0) {
+            printf("B");
         }
     }
-
-    rep(i, n) rep(j, m) {
-        printf("%d\n", a[i][j]);
-    }
+    printf("\n");
 
     /* --------------------------------- */
     return 0;
