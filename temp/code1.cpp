@@ -1,7 +1,5 @@
 /**
- * @brief  : c++ code for AtCoder
- * @author : rk222
- * @created: 2021.11.28 21:47:08
+ * @created: 2022.01.28 20:04:59
  */
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -16,9 +14,11 @@
 #include <stack>
 #include <string>
 #include <vector>
-using namespace std;
 
-#define int long long
+#include <boost/multiprecision/cpp_int.hpp>
+
+using namespace std;
+namespace bmp = boost::multiprecision;
 
 typedef long long ll;
 typedef long double ld;
@@ -184,27 +184,21 @@ const int dir_4[4][2] = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
 const int dir_8[8][2] = {{1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0, -1}, {1, -1}};
 
 /* ------------------------------------- */
-vi bi;
-ll ret1[62];
 
+bmp::cpp_int g_nv[40];
 signed main() {
-    ll n;
-    scanf("%lld", &n);
-
-    while (n > 0) {
-        bi.pb(n % 2);
-        n /= 2;
-    }
-
-    rrep(i, bi.size()) {
-        if (bi[i] == 1) {
-            printf("A");
+    ll max_nv = 20;
+    g_nv[0] = 0;
+    rep1(n, max_nv) {
+        g_nv[n] = g_nv[n - 1];
+        bmp::cpp_int prod = 1;
+        rep(i, n - 1) {
+            prod *= n + 1;
         }
-        if (i > 0) {
-            printf("B");
-        }
+        g_nv[n] += prod;
+        // cout << prod << endl;
+        cout << g_nv[n] << endl;
     }
-    printf("\n");
 
     /* --------------------------------- */
     return 0;
